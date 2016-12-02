@@ -3,7 +3,7 @@ var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'src/client');
-console.log(BUILD_DIR)
+
 var config = {
   entry: {
     app : [APP_DIR + '/main.jsx']

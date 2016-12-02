@@ -1,18 +1,10 @@
 import React from 'react';
-import { initScene, updateUnderConstructionBuilding } from '../flux/actions.js';
 import { connect } from 'react-redux';
-import Menu from './Menu.jsx';
 
 class App extends React.Component {
     
     constructor(props){
 	    super(props);
-    }
-
-    componentDidMount(){
-        this.props.initScene(
-            this.props.dispatchEvents,
-        );
     }
 
     render(){
@@ -25,26 +17,22 @@ class App extends React.Component {
         };
     	return (
     		<div>
-	    		<canvas 
-                    style = { S.canvas }
-	    			id='3dview'
-	    		>
-	    		</canvas>
-                <Menu />
+	    		<p>Hello World</p>
     		</div>
     	);
     }
 };
 
+const mapStateToProps = ( state ) => {
+    return {};
+};
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-        initScene : (dispatchEvents) => dispatch( initScene(dispatchEvents) ),
-        dispatchEvents : (action) => dispatch(action),
-    }
+    };
 };
 
 export default connect(
-    null /* mapStateToProps */,
+     mapStateToProps,
     mapDispatchToProps,
 )(App);
