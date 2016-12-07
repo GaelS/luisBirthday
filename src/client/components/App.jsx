@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PartyNight from './partyNight.jsx';
 
 class App extends React.Component {
     
@@ -17,7 +18,7 @@ class App extends React.Component {
         };
     	return (
     		<div>
-	    		<p>Hello World</p>
+	    		<PartyNight />
     		</div>
     	);
     }
