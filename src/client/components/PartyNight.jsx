@@ -1,11 +1,13 @@
 import React from 'react';
+import Character from './Character.jsx';
+import Light from './Light.jsx';
 
 export default class PartyNight extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             dancing : false,
-        }
+        };
     }
     componentDidMount(){
         window.addEventListener('keydown', e => {
@@ -23,25 +25,21 @@ export default class PartyNight extends React.Component {
             background : {
                 background : "url('images/shop.png')",
                 width : '100vw',
-                height : '100vh' 
+                height : '100vh',
             },
-            head : {
-
-            }, body : {
-                background : `url('images/${ this.state.dancing ? 'body1.jpg' : 'body2.jpg' }`,
-                left : '50px',
-                right : '50px', 
-            }
         };
         let text = `PRESS ${ this.state.dancing ? 'D' : 'Q' }`;
-        return <div
-            style={ S.background }
-        >
+        return <div>
         <p>{text}</p>
-        <div>
-            <div style={ S.head }></div>
-            <div style={ S.body }></div>
-        </div>
+        <Light 
+            color='blue'
+        />
+        <Character 
+            bodies={ ['body1.jpg','body2.jpg'] }
+            faces={ ['face1.png','face2.png'] }
+            dancing={ this.state.dancing }
+
+        />
         </div>
     }
 }
