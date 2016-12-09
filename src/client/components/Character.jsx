@@ -2,6 +2,9 @@ import React from 'react';
 
 import { bodies } from '../danceMessages.js';
 
+import Radium from 'radium';
+
+@Radium
 export default class Character extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +27,8 @@ export default class Character extends React.Component {
                 left : '50%',
             }
         };
-         return <div 
+         return (
+             <div 
                 style= { S.character }
             >
                 <img
@@ -36,5 +40,6 @@ export default class Character extends React.Component {
                     src={ `images/${ bodies[ Math.floor( Math.random() * bodies.length ) ] }` } 
                 />
             </div>
+         );
     }
 }

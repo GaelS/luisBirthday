@@ -5,6 +5,9 @@ import { danceMessages } from '../danceMessages.js';
 import Character from './Character.jsx';
 import Light from './Light.jsx';
 
+import Radium from 'radium';
+
+@Radium
 export default class PartyNight extends React.Component {
     constructor(props){
         super(props);
