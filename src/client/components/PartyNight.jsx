@@ -33,6 +33,23 @@ export default class PartyNight extends React.Component {
         <p>{text}</p>
         <Light 
             color='blue'
+            top={ 0 }
+            left={ 0 }
+        />
+        <Light 
+            color='green'
+            top={ 0 }
+            left={ -300 }
+        />
+        <Light 
+            color='red'
+            top={ 0 }
+            left={ 300 }
+        />
+        <Light 
+            color='yellow'
+            top={ 0 }
+            left={ 600 }
         />
         <Character 
             bodies={ ['body1.jpg','body2.jpg'] }
