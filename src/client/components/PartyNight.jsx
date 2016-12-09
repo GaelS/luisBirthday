@@ -38,7 +38,6 @@ export default class PartyNight extends React.Component {
             bodies={ ['body1.jpg','body2.jpg'] }
             faces={ ['face1.png','face2.png'] }
             dancing={ this.state.dancing }
-
         />
         </div>
     }
