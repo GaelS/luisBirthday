@@ -24,7 +24,7 @@ export default class Light extends React.Component {
                 transformOrigin : '50% top',
                 transform : `rotate( ${ this.state.angle }deg )`,
                 height: '150%',
-                transition : `transform ${ this.props.speed }s linear`,
+                transition : `transform ${ this.props.speed }s ease-out`,
                 zIndex: 10,
             },
         }
