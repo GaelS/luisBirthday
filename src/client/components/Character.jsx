@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { bodies } from '../danceMessages.js';
+
 export default class Character extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +19,9 @@ export default class Character extends React.Component {
             character : {
                 display : 'flex',
                 flexDirection : 'column',
+                position : 'absolute',
+                top : '50%',
+                left : '50%',
             }
         };
          return <div 
@@ -23,11 +29,11 @@ export default class Character extends React.Component {
             >
                 <img
                     style={ S.face } 
-                    src={ `images/${ this.props.faces[ this.props.dancing ? 0 : 1 ] }` } 
+                    src={ `images/dance${ this.props.faces[ this.props.dancing ? 0 : 1 ] }` } 
                 />
                 <img
                     style={ S.body } 
-                    src={ `images/${ this.props.bodies[ this.props.dancing ? 0 : 1 ] }` } 
+                    src={ `images/${ bodies[ Math.floor( Math.random() * bodies.length ) ] }` } 
                 />
             </div>
     }
