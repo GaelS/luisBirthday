@@ -4,10 +4,10 @@ import { danceMessages } from '../danceMessages.js';
 
 import Character from './Character.jsx';
 import Light from './Light.jsx';
+import Bubble from './Bubble.jsx';
 
 import Radium from 'radium';
 
-@Radium
 export default class PartyNight extends React.Component {
     constructor(props){
         super(props);
@@ -15,16 +15,24 @@ export default class PartyNight extends React.Component {
         console.log(width)
         this.state = {
             dancing : false,
+            score : 0,
         };
 
     }
     componentDidMount(){
         window.addEventListener('keydown', e => {
+            let score = this.state.score + 100;
             switch(e.key){
                 case 'q' :
-                case 'Q': return this.setState( { dancing : true } );
+                case 'Q': return this.setState( { 
+                    dancing : true,
+                    score,
+                } );
                 case 'd' :
-                case 'D': return this.setState( { dancing : false } );
+                case 'D': return this.setState( { 
+                    dancing : false,
+                    score, 
+                } );
                 default : return;
             }
         } );
@@ -40,77 +48,70 @@ export default class PartyNight extends React.Component {
                 zIndex : -1,
                 filter : 'blur(3px)',
             },
-            neon : {
-                textShadow: `0 0 10px #fff,
-                    0 0 20px #fff,
-                    0 0 30px #fff,
-                    0 0 40px #ff00de,
-                    0 0 70px #ff00de,
-                    0 0 80px #ff00de,
-                    0 0 100px #ff00de,
-                    0 0 150px #ff00de`,
-            },
-            relief : {
-                textShadow: `0 1px 0 #bbb,
-                    0 2px 0 #bbb,
-                    0 3px 0 #aaa,
-                    0 4px 0 #aaa,
-                    0 5px 0 #999,
-                    0 6px 1px #000,
-                    0 0px 3px #000,
-                    0 1px 3px #000,
-                    0 3px 5px #000,
-                    0 5px 10px #000,
-                    0 5px 20px #000`,
-            },
-            text : {
+            score : {
                 fontFamily : 'Bangers',
                 position : 'relative',
-                fontSize : '40px',
+                fontSize : '100px',
+                color : 'white',
             },
-            bubble : {
-                background : 'url(images/bubble.png)',
-                width : '350px',
-                height : '250px',
-                backgroundSize : '100%',
-                textAlign : 'center',
-                justifyContent : 'center',
-                flexDirection : 'column',
+            luis : {
                 display : 'flex',
-                position : 'absolute',
-                top : `${ Math.random() * window.innerHeight / 3 }px`,
-                left : `${ 200 + Math.random() * window.innerWidth/ 1.5 }px`,
-                transform : `rotate( ${ ( Math.random() < 0.5 ? 1 : -1 ) * Math.random()* 25 }deg )`,
-                zIndex: 20,
-            },
-
+                flexDirection : 'row'
+            }
         };
         let text = `PRESS ${ this.state.dancing ? 'D' : 'Q' }`;
-        let index = Math.floor( Math.random() * danceMessages.length );
         return (
             <div>
+                <div 
+                    style= { S.score }
+                >
+                   { `Score : ${ this.state.score }` }
+                </div>
                 <img 
                     style={ S.background } 
                     src='images/club.jpg'
                 />
+                <Bubble
+                    danceMessages={ danceMessages } 
+                />
                 <div 
-                    style={ S.bubble }
+                    style={S.luis}
                 >
-                    <p
-                        style={ { ...S.text, ...S.relief } }
-                    >
-                        { danceMessages[ index ] }
-                    </p>
+                    <Character 
+                        faces={ ['luis1.png','luis2.png'] }
+                        dancing={ this.state.dancing }
+                    />
+                    <Character 
+                        faces={ ['luis2.png','luis1.png'] }
+                        dancing={ this.state.dancing }
+                    />
+                    <Character 
+                        faces={ ['luis1.png','luis2.png'] }
+                        dancing={ this.state.dancing }
+                    />
+                    <Character 
+                        faces={ ['luis2.png','luis1.png'] }
+                        dancing={ this.state.dancing }
+                    />
+                    <Character 
+                        faces={ ['luis1.png','luis2.png'] }
+                        dancing={ this.state.dancing }
+                    />
                 </div>
                 <Light 
-                    color='blue'
-                    left={ 0 }
+                    color='yellow'
+                    left={ -600 }
                     speed={ 1 }
                 />
                 <Light 
                     color='green'
                     left={ -300 }
-                    speed={ 0.5 }
+                    speed={ 2 }
+                />
+                <Light 
+                    color='blue'
+                    left={ 0 }
+                    speed={ 3 }
                 />
                 <Light 
                     color='red'
@@ -120,18 +121,18 @@ export default class PartyNight extends React.Component {
                 <Light 
                     color='yellow'
                     left={ 600 }
-                    speed={ 0.3 }
+                    speed={ 1 }
                 />  
                 <Light 
                     color='green'
                     left={ 500 }
-                    speed={ 0.5 }
-                />
-                <Character 
-                    faces={ ['face1.png','face2.png'] }
-                    dancing={ this.state.dancing }
+                    speed={ 2 }
                 />
             </div>
         )
     }
 }
+
+/*
+
+*/

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PartyNight from './partyNight.jsx';
+import PartyNight from './PartyNight.jsx';
 
 class App extends React.Component {
     
