@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { danceMessages } from '../danceMessages.js';
+import { danceMessages } from '../../danceMessages.js';
 
 import Character from './Character.jsx';
 import Light from './Light.jsx';
@@ -12,7 +12,6 @@ export default class PartyNight extends React.Component {
     constructor(props){
         super(props);
         let width = window.width;
-        console.log(width)
         this.state = {
             dancing : false,
             score : 0,

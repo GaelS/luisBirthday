@@ -59,7 +59,7 @@ export default class Character extends React.Component {
                 style={ S.bubble }
             >
                 <p
-                    style={ { ...S.text, ...S.relief } }
+                    style={ { ...S.text, ...S.neon } }
                 >
                     { this.props.danceMessages[ index ] }
                 </p>

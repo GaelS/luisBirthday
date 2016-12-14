@@ -5,7 +5,7 @@ import Radium from 'radium';
 export default class Light extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { angle : 0, clockWise : false };
+        this.state = { angle : 0 };
     }
 
     componentDidMount(){

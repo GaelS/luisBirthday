@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { bodies } from '../danceMessages.js';
+import { bodies } from '../../danceMessages.js';
 
 import Radium from 'radium';
 

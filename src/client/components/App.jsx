@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PartyNight from './PartyNight.jsx';
+import PartyNight from './party/PartyNight.jsx';
+import Wreck from './wreck/Wreck.jsx';
+import Whack from './whack/Whack.jsx';
 
-class App extends React.Component {
+export class App extends React.Component {
     
     constructor(props){
 	    super(props);
@@ -18,7 +20,7 @@ class App extends React.Component {
         };
     	return (
     		<div>
-	    		<PartyNight />
+	    		<Whack />
     		</div>
     	);
     }
