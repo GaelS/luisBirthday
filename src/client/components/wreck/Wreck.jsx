@@ -26,7 +26,7 @@ export default class Wreck extends React.Component {
                 leftWallIndex: this.state.angle > 0 ? this.state.leftWallIndex + 1 : this.state.leftWallIndex,
                 rightWallIndex: this.state.angle < 0 ? this.state.rightWallIndex + 1 : this.state.rightWallIndex,
             });
-        }, 1000);
+        }, 2000);
     }
     render() {
         const S = {
@@ -49,7 +49,7 @@ export default class Wreck extends React.Component {
                 height: '730px',
                 transform: `rotate(${this.state.angle}deg)`,
                 transformOrigin: 'top center',
-                transition: `transform 1s ease-in`
+                transition: `transform 2s ease-in`
             },
             wall: {
                 height: '100vh',
