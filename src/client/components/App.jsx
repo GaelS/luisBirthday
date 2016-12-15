@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PartyNight from './party/PartyNight.jsx';
 import Wreck from './wreck/Wreck.jsx';
 import Whack from './whack/Whack.jsx';
-
+import Skate from './skate/Skate.jsx';
 export class App extends React.Component {
     
     constructor(props){
@@ -20,7 +20,7 @@ export class App extends React.Component {
         };
     	return (
     		<div>
-	    		<Whack />
+	    		<Skate />
     		</div>
     	);
     }

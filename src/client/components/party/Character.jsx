@@ -34,11 +34,11 @@ export default class Character extends React.Component {
             >
                 <img
                     style={ S.face } 
-                    src={ `images/faces/${ this.props.faces[ this.props.dancing ? 0 : 1 ] }` } 
+                    src={ `${ this.props.root }/faces/${ this.props.faces[ this.props.dancing ? 0 : 1 ] }` } 
                 />
                 <img
                     style={ S.body } 
-                    src={ `images/bodies/${ bodies[  this.props.dancing ? 0 : 1 ] }` } 
+                    src={ `${ this.props.root }/bodies/${ bodies[  this.props.dancing ? 0 : 1 ] }` } 
                 />
             </div>
          );

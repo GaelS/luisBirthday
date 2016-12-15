@@ -79,22 +79,27 @@ export default class PartyNight extends React.Component {
                     <Character 
                         faces={ ['luis1.png','luis2.png'] }
                         dancing={ this.state.dancing }
+                        root = 'images'
                     />
                     <Character 
                         faces={ ['luis2.png','luis1.png'] }
                         dancing={ this.state.dancing }
+                        root = 'images'
                     />
                     <Character 
                         faces={ ['luis1.png','luis2.png'] }
                         dancing={ this.state.dancing }
+                        root = 'images'
                     />
                     <Character 
                         faces={ ['luis2.png','luis1.png'] }
                         dancing={ this.state.dancing }
+                        root = 'images'
                     />
                     <Character 
                         faces={ ['luis1.png','luis2.png'] }
                         dancing={ this.state.dancing }
+                        root = 'images'
                     />
                 </div>
                 <Light 
