@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import Character from '../party/Character.jsx';
 
-const TIME = 10;
+const TIME = 15;
 
 export default class Skate extends React.Component {
 
@@ -89,13 +89,13 @@ export default class Skate extends React.Component {
             gifCotillons : {
                 position : 'absolute',
                 top : '500px',
-                left : '600px',
+                right : '20px',
                 display : this.state.visible ? 'block' : 'none'
             },
             gifCat : {
                 position : 'absolute',
-                top : '500px',
-                left : '380px',
+                top : '50px',
+                right : '30px',
                 height : '250px',
                 display : this.state.visible ? 'block' : 'none'
             },

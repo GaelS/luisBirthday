@@ -5,17 +5,23 @@ import Radium from 'radium';
 export default class Light extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { angle : 0 };
+        this.state = { angle : 0, isMounted : false };
     }
 
     componentDidMount(){
+        this.setState({ isMounted : true } );
         setInterval( () => {
             let factor = Math.random();
             let angle =  (factor < 0.5 ? 1 : -1) * factor * 90;
-            this.setState( {
+            this.state.isMounted && this.setState( {
                 angle,
             } );
         }, this.props.speed * 1000 );
+    }
+    componentWillUnMount(){
+        this.setState( {
+            isMounted : false,
+         } );
     }
     render() {
         const S = {

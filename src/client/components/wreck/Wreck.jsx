@@ -19,9 +19,9 @@ export default class Wreck extends React.Component {
             let angle = this.state.angle === 0 || this.state.angle === 60 ? -60 : 60;
 
             this.setState({
-                angle: this.state.leftWallIndex > 9 && this.state.rightWallIndex > 9 ? 0 : angle,
+                angle: this.state.leftWallIndex >= 7 && this.state.rightWallIndex >= 7 ? 0 : angle,
                 //done when all walls are destroyed
-                done: this.state.leftWallIndex > 9 && this.state.rightWallIndex > 9,
+                done: this.state.leftWallIndex >= 7 && this.state.rightWallIndex >= 7,
                 faceIndex: this.state.faceIndex === 1 ? 2 : 1,
                 leftWallIndex: this.state.angle > 0 ? this.state.leftWallIndex + 1 : this.state.leftWallIndex,
                 rightWallIndex: this.state.angle < 0 ? this.state.rightWallIndex + 1 : this.state.rightWallIndex,
@@ -70,7 +70,7 @@ export default class Wreck extends React.Component {
                 fontFamily: 'Bangers',
                 fontSize: '70px',
                 position: 'absolute', 
-                bottom: '0px', 
+                top: '20px', 
             },
         };
         return (
@@ -82,7 +82,7 @@ export default class Wreck extends React.Component {
                     >
                 </div>
                 {
-                    _.range(1, 10).map(n => (
+                    _.range(1, 8).map(n => (
                         <img
                             key={n}
                             style={{
@@ -100,14 +100,14 @@ export default class Wreck extends React.Component {
                     src={`images/wreck/body${this.state.done ? 'Naked' : this.state.faceIndex}.png`}
                     />
                 {
-                    _.range(1, 10).map(n => (
+                    _.range(1, 8).map(n => (
                         <img
                             key={n}
                             style={{
                                 ...S.wall,
                         ...{
                             backgroundImage: `url(images/wreck/wall${n}R.png)`,
-                            display: n === this.state.rightWallIndex || (n === 9 && this.state.rightWallIndex > 9) ? 'block' : 'none',
+                            display: n === this.state.rightWallIndex || (n === 7 && this.state.rightWallIndex > 7) ? 'block' : 'none',
                         }         
                             } }
                         />

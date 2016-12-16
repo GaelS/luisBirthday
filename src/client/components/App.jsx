@@ -8,6 +8,19 @@ export class App extends React.Component {
     
     constructor(props){
 	    super(props);
+        this.state = {
+            app : 0,
+        }
+    }
+    componentDidMount(){
+        window.addEventListener('keydown', (e) => {
+            if(e.keyCode == 27){
+                let app = this.state.app + 1;
+                this.setState({
+                   app : app > 3 ? 0 : app,
+                })
+            }
+        } )
     }
 
     render(){
@@ -20,7 +33,10 @@ export class App extends React.Component {
         };
     	return (
     		<div>
-	    		<Skate />
+                { this.state.app === 0 && <PartyNight /> }
+                { this.state.app === 1 && <Wreck /> }
+                { this.state.app === 2 && <Whack /> }
+                { this.state.app === 3 && <Skate /> }
     		</div>
     	);
     }

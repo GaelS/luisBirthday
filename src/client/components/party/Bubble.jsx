@@ -19,7 +19,7 @@ export default class Character extends React.Component {
                 flexDirection : 'column',
                 display : 'flex',
                 position : 'absolute',
-                top : `${ Math.random() * window.innerHeight / 4 }px`,
+                bottom : `${ Math.random() * window.innerHeight / 4 }px`,
                 left : `${ 200 + Math.random() * window.innerWidth/ 3 }px`,
                 transform : `rotate( ${ ( Math.random() < 0.5 ? 1 : -1 ) * Math.random()* 25 }deg )`,
                 zIndex: 20,

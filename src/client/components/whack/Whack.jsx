@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-const MAX_SCORE = 10;
-const CTR = 2;
+const MAX_SCORE = 50;
+const CTR = 10;
 export default class Whack extends React.Component {
 
     constructor(props) {
@@ -13,11 +13,12 @@ export default class Whack extends React.Component {
             celinePic : Math.ceil(Math.random() * 4),    
             top : 20,
             left : 20,
-            height : 20,
-            width : 20,
+            height : 100,
+            width : 100,
             score : 0,
             ctr : CTR,
             done : false,
+            angle : 360,
         };
     }
 
@@ -37,6 +38,7 @@ export default class Whack extends React.Component {
         this.setState( {
             score : score,
             done : score === MAX_SCORE,
+            angle : 0,
         } );
     }
 
@@ -47,7 +49,8 @@ export default class Whack extends React.Component {
             done : false,
             score : 0,
             celine : Math.floor(Math.random() * 19),   
-            celinePic : Math.ceil(Math.random() * 4),    
+            celinePic : Math.ceil(Math.random() * 4),   
+            angle : 0, 
         } );
     }
     setCeline(){
@@ -58,9 +61,10 @@ export default class Whack extends React.Component {
         let axis = Math.random() < 0.5 ? 'X' : 'Y';
         this.setState( {
             top : top + height/2, 
-            height : height === 0 ? 30 : height/2,
+            height : 100,//height === 0 ? 30 : height/2,
             left : left + width/2, 
-            width : 60, //width === 0 ? 60 : width/2,
+            width : 100, //width === 0 ? 60 : width/2,
+            angle : 360,
             //pic to hide behind
             celine : Math.floor(Math.random() * 19),   
             //celine's face'
@@ -80,9 +84,9 @@ export default class Whack extends React.Component {
                 position : 'absolute',
                 top : `${this.state.top}px`,
                 left : `${this.state.left}px`,
-                width : `${this.state.width}px`,
-                height : `${this.state.height}px`,
-                transform : `translate${this.state.axis}(${this.state.translation}px) scale(${ this.state.ctr<5 ? 2 : 1 })`,
+                width : `200px`,
+                height : `200px`,
+                transform : `translate${this.state.axis}(${this.state.translation}px) rotate(${ this.state.angle }deg) scale(${ this.state.ctr<5 ? 2 : 1 })`,
                 transition: `transform 2s ease-in`,
                 cursor: 'pointer',
                 zIndex : 1,
